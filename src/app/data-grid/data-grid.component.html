@@ -1,0 +1,52 @@
+<div class="table-responsive">
+  <div class="col-md-12 form-group">
+    <div class="pull-left">
+      <div *ngIf="_totalRows">1-10 of {{_totalRows}} results</div>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn" type="button"><i title="First Page" class="glyphicon glyphicon-step-backward"></i></button>
+      <button class="btn" type="button"><i title="Previous Page" class="glyphicon glyphicon-backward"></i></button>
+      <button class="btn" type="button"><i title="Next Page" class="glyphicon glyphicon-forward"></i></button>
+      <button class="btn" type="button"><i title="Last Page" class="glyphicon glyphicon-step-forward"></i></button>
+    </div>
+  </div>
+  <table id="accuralTable" class="display table table-bordered" width="100%">
+    <thead>
+      <tr>
+        <th class="sorted-none">Vendor</th>
+        <th class="sorted-asc sorted">VL</th>
+        <th class="sorted-none">Rebate</th>
+        <th class="sorted-none">RT</th>
+        <th class="sorted-none">PO</th>
+        <th class="sorted-none">Item</th>
+        <th class="sorted-none">Rec Date</th>
+        <th class="sorted-none">VA Invoice</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of _accuralGridData; let i = index" name="accuralData" ngDefaultControl [(ngModel)]="_accuralGridData"
+        (click)="selectRow(i, row)">
+        <td class="sorted">{{row?.vendor}}</td>
+        <td>{{row?.vl}}</td>
+        <td>{{row?.rebate}}</td>
+        <td>{{row?.rt}}</td>
+        <td>{{row?.po}}</td>
+        <td>{{row?.item}}</td>
+        <td>{{row?.receiptDate}}</td>
+        <td>{{row?.vaInvoice}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="col-md-12 form-group">
+    <div class="pull-left">
+      <h5>1-10 of {{totalRows}} results</h5>
+    </div>
+    <div class="btn-group pull-right">
+      <button class="btn" type="button"><i title="First Page" class="glyphicon glyphicon-step-backward"></i></button>
+      <button class="btn" type="button"><i title="Previous Page" class="glyphicon glyphicon-backward"></i></button>
+      <button class="btn" type="button"><i title="Next Page" class="glyphicon glyphicon-forward"></i></button>
+      <button class="btn" type="button" (click)="reInitDatatable()"><i title="Last Page" class="glyphicon glyphicon-step-forward"></i></button>
+    </div>
+  </div>
+
+</div>
